@@ -189,6 +189,21 @@ class Sll {
           newTail.next = null;
           this.head = newHead;
      }
+     reverseRecursively( current = this.head){
+
+          if (!current || !current.next){
+               this.head = current;
+               return current;
+          }
+
+          const newHead = this.reverseRecursively(current.next);
+
+          current.next.next = current;
+          current.next = null;
+
+          return newHead;
+          
+     }
 
 }
 
